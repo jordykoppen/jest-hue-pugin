@@ -1,11 +1,16 @@
 {
   "name": "jest-hue-plugin",
   "version": "1.0.0",
-  "description": "Sync hue lights with jest test result",
+  "description": "Sync Philips Hue lights with jest test result",
   "main": "dist/index.js",
+  "homepage": "https://github.com/jordykoppen/jest-hue-pugin",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "babel src -d dist --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --config .eslintrc src",
+    "prepublish": "yarn run lint && yarn run build"
   },
   "keywords": [
     "jest",
@@ -19,7 +24,13 @@
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6"
+    "@babel/preset-env": "^7.1.6",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
     "node-hue-api": "^2.4.4"
