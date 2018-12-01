@@ -1,0 +1,27 @@
+{
+  "name": "jest-hue-plugin",
+  "version": "1.0.0",
+  "description": "Sync hue lights with jest test result",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "babel src -d dist --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jest",
+    "jest-hue-plugin",
+    "testing",
+    "tooling",
+    "hue"
+  ],
+  "author": "Jordy Koppen",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6"
+  },
+  "dependencies": {
+    "node-hue-api": "^2.4.4"
+  }
+}
