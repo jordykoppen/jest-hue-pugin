@@ -1,6 +1,4 @@
-import { PatternPrompt } from 'jest-watcher'
 import { HueApi, lightState } from 'node-hue-api'
-import HueSyncPrompt from './HueSyncPrompt'
 
 class HueSyncPlugin {
   hueApi = undefined
@@ -8,21 +6,23 @@ class HueSyncPlugin {
   lightId = undefined
   brightness = 50
   enabled = true
-  usageInfo = { key: 'h', prompt: 'for hue sync settings' }
 
-  constructor ({ config: { user, host, brightness, key, lightId }, stdout }) {
+  constructor (
+    { config: {
+      user,
+      host,
+      brightness,
+      lightId,
+      enabled },
+    stdout }) {
     this.hueApi = new HueApi(host, user)
-    this.prompt = new HueSyncPrompt(stdout, new PatternPrompt())
     this.lightId = lightId
 
     if (brightness) {
       this.brightness = brightness
     }
-    if (key) {
-      this.usageInfo = { key, ...this.usageInfo }
-    }
   }
-  // Add hooks to Jest lifecycle events
+
   apply (jestHooks) {
     jestHooks.onTestRunComplete(({ success }) => {
       if (this.enabled) {

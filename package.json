@@ -10,6 +10,7 @@
   "scripts": {
     "start": "babel src -d dist --watch",
     "lint": "eslint --config .eslintrc src",
+    "build": "yarn run lint && babel src -d dist",
     "prepublish": "yarn run lint && yarn run build"
   },
   "keywords": [
@@ -36,10 +37,6 @@
     "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
-    "ansi-escapes": "^3.1.0",
-    "chalk": "^2.4.1",
-    "jest-watcher": "^23.4.0",
-    "node-hue-api": "^2.4.4",
-    "stream": "^0.0.2"
+    "node-hue-api": "^2.4.4"
   }
 }
